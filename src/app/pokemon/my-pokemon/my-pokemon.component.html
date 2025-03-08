@@ -1,0 +1,49 @@
+<h2  class="titulo">Mi Equipo Pokémon</h2>
+<div class="contenedor">
+    <mat-card class="custom-shadow" *ngIf="pokemons.length > 0 && pokemons[currentIndex]">
+        <mat-card-header>
+            <mat-card-title-group>
+                <mat-card-title>Nombre ➠ {{ pokemons[currentIndex]['name']}}</mat-card-title>
+                <mat-card-subtitle>Nickname ➠ {{ pokemons[currentIndex]['nickname']}}<br>
+                    Identificador 🡆: #{{pokemons[currentIndex]['ide']}}<br>
+                    <hr>
+                    <button matTooltip="Editar Nickname" mat-button (click)="updatePokemonNickName(pokemons[currentIndex])">
+                        <img src="assets/img/juego.png" alt="Icono" width="40" height="40">
+                    </button>
+                    <button matTooltip="Liberar Pokémon" mat-button (click)="deletePokemon(pokemons[currentIndex])">
+                        <img src="assets/img/caught-pokemon.gif" alt="Icono" width="40" height="40">
+                    </button>
+                </mat-card-subtitle>
+                <div class="custom-shadow-img">
+                    <img mat-card-md-image [src]="pokemons[currentIndex]['sprite_url']">
+                </div>
+            </mat-card-title-group>
+        </mat-card-header>
+        <mat-card-content>
+            <hr>
+            <mat-grid-list cols="5" rowHeight="2:8">
+                <mat-grid-tile colspan="2">
+                    <mat-list role="list">
+                        <h3>Tipo</h3>
+                        <ng-container *ngFor="let type of pokemons[currentIndex]['types']; let i = index">
+                            <mat-list-item role="listitem">✅ {{type}}</mat-list-item>
+                        </ng-container>
+                    </mat-list>
+                </mat-grid-tile>
+                <mat-grid-tile colspan="3">
+                    <mat-list role="list">
+                        <h3>Habilidades</h3>
+                        <ng-container *ngFor="let abil of pokemons[currentIndex]['abilities']; let i = index">
+                            <mat-list-item role="listitem">✅ {{abil}}</mat-list-item>
+                        </ng-container>
+                    </mat-list>
+                </mat-grid-tile>
+            </mat-grid-list>
+        </mat-card-content>
+        <mat-card-actions align="end">
+            
+            <button mat-button (click)="prev()" [disabled]="currentIndex === 0">Anterior</button>
+            <button mat-button (click)="next()" [disabled]="currentIndex === pokemons.length - 1">Siguiente</button>
+        </mat-card-actions>
+    </mat-card>
+</div>

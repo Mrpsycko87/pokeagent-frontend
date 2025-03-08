@@ -1,0 +1,22 @@
+<h2 mat-dialog-title>Actualizar Nickname</h2>
+<mat-dialog-content class="mat-typography">
+    <mat-card class="example-card" appearance="outlined">
+        <mat-card-header>
+            <mat-card-title>Nickname actual: {{dataJoin.nickname}}</mat-card-title>
+            <mat-card-subtitle>Aquí puede cambiar el nickname de <strong>{{dataJoin.name}}</strong></mat-card-subtitle>
+        </mat-card-header>
+        <mat-card-content>
+            <hr>
+            <form [formGroup]="updateForm">
+                <mat-form-field appearance="outline">
+                    <mat-label>Nickname</mat-label>
+                    <input matInput formControlName="nickname" placeholder="Nickname" required autocomplete="off">
+                </mat-form-field>
+            </form>
+        </mat-card-content>
+    </mat-card>
+</mat-dialog-content>
+<mat-dialog-actions align="end">
+    <button mat-button mat-dialog-close>Volver</button>
+    <button mat-button [mat-dialog-close]="updateForm.getRawValue()" cdkFocusInitial  [disabled]="!updateForm.valid">Actualizar</button>
+</mat-dialog-actions>

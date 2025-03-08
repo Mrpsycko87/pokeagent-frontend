@@ -1,0 +1,51 @@
+.example-card {
+    max-width: 500px;
+    max-height: 300px;
+    margin-bottom: 4px;
+}
+
+
+
+.example-item {
+    height: 50px;
+}
+
+.custom-shadow {
+    max-width: 600px;
+    box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.9);
+    border: thick double #2ca4d3;
+    background-color: rgb(252, 247, 223);
+}
+
+.custom-shadow-img {
+    margin-left: 10px;
+    box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.5);
+    border: 4mm ridge rgba(245, 209, 128, 0.6);
+    background-color: white;
+
+}
+
+
+@media (max-width: 600px) {
+    mat-grid-list {
+        grid-template-columns: repeat(1, 1fr) !important;
+    }
+}
+
+@media (min-width: 601px) and (max-width: 960px) {
+    mat-grid-list {
+        grid-template-columns: repeat(1, 1fr) !important;
+    }
+}
+
+@media (min-width: 961px) and (max-width: 1280px) {
+    mat-grid-list {
+        grid-template-columns: repeat(2, 1fr) !important;
+    }
+}
+
+@media (min-width: 1281px) {
+    mat-grid-list {
+        grid-template-columns: repeat(2, 1fr) !important;
+    }
+}

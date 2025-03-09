@@ -15,6 +15,8 @@
           "options": {
             "outputPath": "dist/crud-node-jsangular",
             "index": "src/index.html",
+            "baseHref": "/",
+            "deployUrl": "/",
             "browser": "src/main.ts",
             "polyfills": [
               "zone.js"

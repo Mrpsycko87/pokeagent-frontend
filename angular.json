@@ -79,9 +79,6 @@
         "test": {
           "builder": "@angular-devkit/build-angular:karma",
           "options": {
-            "outputPath": "dist/crud-node-jsangular",
-            "baseHref": "/",
-            "deployUrl": "/",
             "polyfills": [
               "zone.js",
               "zone.js/testing"

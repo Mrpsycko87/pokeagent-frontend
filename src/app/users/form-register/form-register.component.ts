@@ -29,7 +29,6 @@ export class FormRegisterComponent {
   regForm(){
     this.userService.signup(this.registerForm.getRawValue()).subscribe({
       next:(response)=>{
-        console.log('Registro  exitoso:', response);
         Swal.fire({
           title: "Success",
           text: `Bienvenido a Poke-Agent App ${response.name}, ahora puede iniciar sesión`,

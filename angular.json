@@ -14,7 +14,6 @@
           "builder": "@angular-devkit/build-angular:application",
           "options": {
             "outputPath": "dist/crud-node-jsangular",
-            "baseHref": "/",
             "index": "src/index.html",
             "browser": "src/main.ts",
             "polyfills": [
@@ -24,9 +23,8 @@
             "assets": [
               "src/assets",
               {
-                "glob": "_redirects",
-                "input": "src/assets",
-                "output": "/"
+                "glob": "**/*",
+                "input": "public"
               }
             ],
             "styles": [
@@ -85,9 +83,8 @@
             "assets": [
               "src/assets",
               {
-                "glob": "_redirects",
-                "input": "src/assets",
-                "output": "/"
+                "glob": "**/*",
+                "input": "public"
               }
             ],
             "styles": [

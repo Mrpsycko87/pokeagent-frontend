@@ -24,6 +24,7 @@
             "tsConfig": "tsconfig.app.json",
             "assets": [
               "src/assets",
+              "src/_redirects",
               {
                 "glob": "_redirects",
                 "input": "src/assets",
@@ -78,6 +79,9 @@
         "test": {
           "builder": "@angular-devkit/build-angular:karma",
           "options": {
+            "outputPath": "dist/crud-node-jsangular",
+            "baseHref": "/",
+            "deployUrl": "/",
             "polyfills": [
               "zone.js",
               "zone.js/testing"
@@ -85,6 +89,7 @@
             "tsConfig": "tsconfig.spec.json",
             "assets": [
               "src/assets",
+              "src/_redirects",
               {
                 "glob": "_redirects",
                 "input": "src/assets",

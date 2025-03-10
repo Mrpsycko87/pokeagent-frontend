@@ -3,7 +3,7 @@
     <mat-card class="custom-shadow" *ngIf="pokemons.length > 0 && pokemons[currentIndex]">
         <mat-card-header>
             <mat-card-title-group>
-                <mat-card-title>Nombre ➠ {{ pokemons[currentIndex]['name']}}</mat-card-title>
+                <mat-card-title style=" text-transform: uppercase;">{{ pokemons[currentIndex]['name']}}</mat-card-title>
                 <mat-card-subtitle>Nickname ➠ {{ pokemons[currentIndex]['nickname']}}<br>
                     Identificador 🡆: #{{pokemons[currentIndex]['ide']}}<br>
                     <hr>

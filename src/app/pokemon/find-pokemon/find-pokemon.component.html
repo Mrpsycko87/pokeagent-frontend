@@ -1,4 +1,4 @@
-<mat-grid-list [cols]="cols" rowHeight="600px">
+<mat-grid-list [cols]="cols" rowHeight="800px">
     <mat-grid-tile>
         <mat-card class="example-card" appearance="outlined">
             <mat-card-header>
@@ -15,6 +15,7 @@
                                 }}</mat-option>
                         </mat-select>
                     </mat-form-field>
+                    <br>
                     <mat-form-field appearance="outline" *ngIf="pokeForm.controls['type_find'].value=='findByName'">
                         <mat-label>Nombre</mat-label>
                         <input matInput formControlName="name" placeholder="Nombre"
@@ -50,7 +51,7 @@
                 <mat-card-header>
                     <mat-card-title-group>
                         <mat-card-subtitle>Identificador 🡆: # {{pokeFound.id}}</mat-card-subtitle>
-                        <mat-card-title>Nombre ➠ {{pokeFound.name}}</mat-card-title>
+                        <mat-card-title>Nombre:<br> ➠ {{pokeFound.name}}</mat-card-title>
                         <div class="custom-shadow-img">
                             <img mat-card-md-image src="{{pokeFound.sprite_url}}">
                         </div>

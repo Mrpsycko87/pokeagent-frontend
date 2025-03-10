@@ -16,7 +16,7 @@ import Swal from 'sweetalert2'
 export class MyPokemonComponent implements OnInit {
 
   currentIndex = 0;
-
+  pokemons = []
   constructor(
     private pokeService: PokemonService,
     private token: AuthService,
@@ -27,7 +27,6 @@ export class MyPokemonComponent implements OnInit {
     this.getpokemonByuser()
   }
 
-  pokemons = []
   getpokemonByuser() {
     const idUser = this.token.getTokenstorage()
     this.pokeService.getPokemonByuser(idUser).subscribe({
@@ -79,12 +78,11 @@ export class MyPokemonComponent implements OnInit {
   deletePokemon(data: any) {
     Swal.fire({
       title: `Está a punto de liberar de su equipo a ${data.nickname}`,
+      icon:'question',
       showDenyButton: true,
       showCancelButton: false,
-      confirmButtonText: "Liberar",
-
+      confirmButtonText: "¿Liberar?",
     }).then((result) => {
-      /* Read more about isConfirmed, isDenied below */
       if (result.isConfirmed) {
         this.pokeService.deletePokemonByuser(data).subscribe(dta=>{
           this.getpokemonByuser()
@@ -92,6 +90,5 @@ export class MyPokemonComponent implements OnInit {
         })
       }
     });
-
   }
 }

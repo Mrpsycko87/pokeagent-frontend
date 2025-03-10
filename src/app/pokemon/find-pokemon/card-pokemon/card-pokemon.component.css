@@ -1,0 +1,15 @@
+.custom-shadow {
+    max-width: 600px;
+    box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.9);
+    border: thick double #2ca4d3;
+    background-color: rgb(252, 247, 223);
+    margin: 20px;
+}
+
+.custom-shadow-img {
+    margin-left: 10px;
+    box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.5);
+    border: 4mm ridge rgba(245, 209, 128, 0.6);
+    background-color: white;
+
+}

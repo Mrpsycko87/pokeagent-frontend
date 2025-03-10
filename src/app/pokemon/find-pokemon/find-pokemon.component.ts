@@ -60,6 +60,11 @@ export class FindPokemonComponent implements OnInit {
       width: '500px',
       data: data
     })
-    dialogRef.afterClosed().subscribe(result => {})
+    dialogRef.afterClosed().subscribe(result => {
+      console.log(result)
+      if(result=='El usuario ya tiene ese  pokemon'){
+        this.errorMessage = result;
+      }
+    })
   }
 }

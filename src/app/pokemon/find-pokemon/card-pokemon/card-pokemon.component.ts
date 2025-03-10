@@ -6,7 +6,7 @@ import { Router } from '@angular/router';
 import { AuthService } from '../../../services/auth.service';
 import { PokemonService } from '../../../services/pokemon/pokemon.service';
 import Swal from 'sweetalert2'
-import { MAT_DIALOG_DATA } from '@angular/material/dialog';
+import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
 
 @Component({
   selector: 'app-card-pokemon',
@@ -18,11 +18,17 @@ export class CardPokemonComponent {
   errorMessage: string = '';
 
   constructor(
+    public dialogRef: MatDialogRef<any>,
     @Inject(MAT_DIALOG_DATA) public dataJoin: any,
     private pokeService: PokemonService,
     private token: AuthService,
     private router: Router
   ) { }
+
+  
+  closeDialog(data?:any): void {
+    this.dialogRef.close(data)
+  }
   
 
   async capturePokemon(data: any) {
@@ -46,6 +52,7 @@ export class CardPokemonComponent {
                 icon: "success",
                 confirmButtonText: 'Entendido'
               });
+              this.closeDialog()
               this.router.navigateByUrl('/pokemon/all')
             },
             error: (error) => {
@@ -68,6 +75,7 @@ export class CardPokemonComponent {
             icon: "success",
             confirmButtonText: 'Entendido'
           });
+          this.closeDialog()
           this.router.navigateByUrl('/pokemon/all')
         },
         error: (error) => {

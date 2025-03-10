@@ -30,7 +30,7 @@ export class FormRegisterComponent {
     this.userService.signup(this.registerForm.getRawValue()).subscribe({
       next:(response)=>{
         Swal.fire({
-          title: "Success",
+          title: "¡Usuario Registrado con éxito!",
           text: `Bienvenido a Poke-Agent App ${response.name}, ahora puede iniciar sesión`,
           icon: "success",
           showCancelButton: false,

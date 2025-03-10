@@ -1,6 +1,7 @@
-<mat-grid-list [cols]="cols" rowHeight="800px">
-    <mat-grid-tile>
-        <mat-card class="example-card" appearance="outlined">
+<br>
+<div class="contenedor">
+    <div class="elemento">
+        <mat-card appearance="outlined">
             <mat-card-header>
                 <mat-card-title>Buscar Pokémon</mat-card-title>
             </mat-card-header>
@@ -43,51 +44,61 @@
             </mat-card-content>
 
         </mat-card>
+    </div>
+    <hr>
+    <div class="elemento" *ngIf="cardPokemon"> <!--  @for (notes of userNotes; track $index) {} -->
+        <mat-card class="custom-shadow">
+            <mat-card-header>
+                <mat-card-title-group>
+                    <mat-card-subtitle>Identificador 🡆: # {{pokeFound.id}}</mat-card-subtitle>
+                    <mat-card-title>Nombre:<br> ➠ {{pokeFound.name}}</mat-card-title>
+                    <div class="custom-shadow-img">
+                        <img mat-card-md-image src="{{pokeFound.sprite_url}}">
+                    </div>
+                </mat-card-title-group>
+            </mat-card-header>
+            <mat-card-content>
+                <small style="color:red">{{ errorMessage }}</small>
+                <hr>
+                <mat-grid-list cols="5" rowHeight="2:9">
+                    <mat-grid-tile colspan="2">
+                        <mat-list role="list">
+                            <h3>Tipo</h3>
+                            @for (type of pokeFound.types; track $index) {
+                            <mat-list-item role="listitem">✅ {{type}}</mat-list-item>
+                            }
+                        </mat-list>
+                    </mat-grid-tile>
+                    <mat-grid-tile colspan="3">
+                        <br>
+                        <mat-list role="list">
+                            <h3>Habilidades</h3>
+                            @for (abili of pokeFound.abilities; track $index) {
+                            <mat-list-item role="listitem">⚔ {{abili}}</mat-list-item>
+                            }
+                        </mat-list>
+                    </mat-grid-tile>
+                </mat-grid-list>
+            </mat-card-content>
+            <mat-card-actions align="end">
+                <button mat-button (click)="capturePokemon(pokeFound)">
+                    Capturar
+                    <img src="assets/img/juegos.png" alt="Icono" width="40" height="40">
+                </button>
+            </mat-card-actions>
+        </mat-card>
+    </div>
+
+
+</div>
+
+<!-- <mat-grid-list [cols]="cols" rowHeight="800px">
+    <mat-grid-tile>
+        
 
     </mat-grid-tile>
     <mat-grid-tile>
-        <div *ngIf="cardPokemon"> <!--  @for (notes of userNotes; track $index) {} -->
-            <mat-card class="custom-shadow">
-                <mat-card-header>
-                    <mat-card-title-group>
-                        <mat-card-subtitle>Identificador 🡆: # {{pokeFound.id}}</mat-card-subtitle>
-                        <mat-card-title>Nombre:<br> ➠ {{pokeFound.name}}</mat-card-title>
-                        <div class="custom-shadow-img">
-                            <img mat-card-md-image src="{{pokeFound.sprite_url}}">
-                        </div>
-                    </mat-card-title-group>
-                </mat-card-header>
-                <mat-card-content>
-                    <small style="color:red">{{ errorMessage }}</small>
-                    <hr>
-                    <mat-grid-list cols="5" rowHeight="2:9">
-                        <mat-grid-tile colspan="2">
-                            <mat-list role="list">
-                                <h3>Tipo</h3>
-                                @for (type of pokeFound.types; track $index) {
-                                <mat-list-item role="listitem">✅ {{type}}</mat-list-item>
-                                }
-                            </mat-list>
-                        </mat-grid-tile>
-                        <mat-grid-tile colspan="3">
-                            <br>
-                            <mat-list role="list">
-                                <h3>Habilidades</h3>
-                                @for (abili of pokeFound.abilities; track $index) {
-                                <mat-list-item role="listitem">⚔ {{abili}}</mat-list-item>
-                                }
-                            </mat-list>
-                        </mat-grid-tile>
-                    </mat-grid-list>
-                </mat-card-content>
-                <mat-card-actions align="end">
-                    <button mat-button (click)="capturePokemon(pokeFound)">
-                        Capturar
-                        <img src="assets/img/juegos.png" alt="Icono" width="40" height="40">
-                    </button>
-                </mat-card-actions>
-            </mat-card>
-        </div>
+        
     </mat-grid-tile>
 
-</mat-grid-list>
+</mat-grid-list> -->
